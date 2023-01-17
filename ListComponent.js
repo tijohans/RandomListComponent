@@ -18,7 +18,8 @@ export class ElementList extends HTMLElement {
     }
 
     _template() {
-        const template = `
+        const template = document.createElement('template');
+        template.innerHTML = `
             <style>
                 div {
                     border: 1px solid black;
@@ -44,7 +45,7 @@ export class ElementList extends HTMLElement {
             </div>
         `;
 
-        return template;
+        return template.content.cloneNode(true);
     }
 
     _addEventListeners() {
